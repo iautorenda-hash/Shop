@@ -1,0 +1,30 @@
+{
+  "entities": {
+    "Ride": {
+      "title": "Ride",
+      "description": "A ride request in the system",
+      "type": "object",
+      "properties": {
+        "passengerId": { "type": "string" },
+        "passengerName": { "type": "string" },
+        "driverId": { "type": "string" },
+        "driverName": { "type": "string" },
+        "status": { "type": "string", "enum": ["REQUESTING", "WAITING_DRIVER", "EN_ROUTE_PICKUP", "ARRIVED", "EN_ROUTE_DROPOFF", "COMPLETED", "CANCELLED"] },
+        "pickupLocation": { "type": "array", "items": { "type": "number" } },
+        "dropoffLocation": { "type": "array", "items": { "type": "number" } },
+        "pickupName": { "type": "string" },
+        "dropoffName": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["passengerId", "status", "pickupLocation", "dropoffLocation", "pickupName", "dropoffName", "category", "price", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/rides/{rideId}": {
+      "schema": { "$ref": "#/entities/Ride" },
+      "description": "Ride requests"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Driver App Pro",
+  "description": "Um aplicativo de mobilidade para motoristas, focado em alta tecnologia e ganhos justos (80% para o motorista).",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
